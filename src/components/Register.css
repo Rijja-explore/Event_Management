@@ -1,0 +1,421 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Container Styling */
+.container2 {
+  background: url('./assets/ssn_campus.jpeg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Header - White Background */
+.header2 {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 5px 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(75, 108, 183, 0.2);
+  font-size: 18px; /* Increased font size for better visibility */
+  font-weight: bold;
+  color: #333; /* Darker color for text */
+}
+
+.logo2 {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.logo2:hover {
+  transform: scale(1.05);
+}
+
+.nav-links2 {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links2 a {
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-links2 a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  transition: width 0.3s ease;
+}
+
+.nav-links2 a:hover:after {
+  width: 100%;
+}
+
+/* Event Details Section - Increased Title Size */
+.event-details2 {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  width: 100%;
+  padding: 30px; /* Increased padding for more spaciousness */
+  padding-bottom: 40px; /* Added extra space at the bottom */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: white;
+  position: relative;
+  font-size: 30px; /* Increased font size */
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.event-details2 h2 {
+  font-size: 30px; /* Increase title font size */
+  margin-bottom: 15px; /* Give more space below the title */
+  color :#f9f9f9;
+
+}
+
+.event-details2 p {
+  font-size: 16px; /* Increase description text size for better readability */
+  line-height: 1.5;
+}
+
+.event-details2:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Main Content */
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+
+/* Form Container - Glass Morphism */
+.form-container2 {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 40px; /* Increased padding for more breathing room */
+  border-radius: 16px;
+  width: 480px; /* Increased width for the form container */
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom Scrollbar */
+.form-container2::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-container2::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.form-container2::-webkit-scrollbar-thumb {
+  background: rgba(22, 34, 57, 0.7);
+  border-radius: 10px;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+form label {
+  font-weight: 600;
+  text-align: left;
+  font-size: 14px;
+  color: #182848;
+  margin-bottom: -5px;
+  letter-spacing: 0.5px;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(22, 34, 57, 0.2);
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+form input:focus, form select:focus {
+  outline: none;
+  border-color: #4b6cb7;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(22, 34, 57, 0.1);
+  transform: translateY(-2px);
+}
+
+form input::placeholder {
+  color: #aaa;
+}
+
+/* QR Code Section */
+.qr-section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  margin: 5px 0 15px;
+  border: 1px dashed rgba(22, 34, 57, 0.3);
+}
+
+.qr-section2:before {
+  content: "Payment QR";
+  color: #182848;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.qr-code2 {
+  width: 170px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.qr-code2:hover {
+  transform: scale(1.05);
+}
+
+button2 {
+  width: 100%;
+  padding: 16px; /* Increased padding for better button size */
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px; /* Increased font size */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(22, 34, 57, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-size: 200% 200%; /* To allow a smooth gradient animation */
+}
+
+button2:hover {
+  background: linear-gradient(45deg, #182848, #4b6cb7);
+  transform: translateY(-5px); /* Button lifts on hover */
+  box-shadow: 0 6px 25px rgba(22, 34, 57, 0.4); /* Stronger shadow on hover */
+}
+
+button2:active {
+  transform: translateY(0); /* Button returns to normal state on click */
+  box-shadow: 0 2px 10px rgba(22, 34, 57, 0.3); /* Lighter shadow on click */
+}
+
+button2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: ripple 1s infinite;
+  opacity: 0;
+}
+
+
+button2:hover::before {
+  opacity: 1;
+  animation: ripple 1s infinite; /* Adds a ripple effect on hover */
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+
+/* Footer */
+.footer2 {
+  width: 100%;
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .header2 {
+    padding: 15px 20px;
+  }
+  
+  .form-container2 {
+    width: 90%;
+    padding: 30px;
+  }
+  
+  .event-details2 h2 {
+    font-size: 24px;
+  }
+  
+  .event-details2 p {
+    font-size: 14px;
+  }
+  
+  button2 {
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links2 {
+    gap: 20px;
+  }
+  
+  .nav-links2 a {
+    font-size: 14px;
+  }
+  
+  .form-container2 {
+    padding: 20px;
+  }
+  
+  .event-details2 {
+    padding: 15px;
+  }
+  
+  .qr-code2 {
+    width: 150px;
+  }
+  
+  button2{
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+.register-form2 {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.register-form2 label {
+  display: block;
+  margin-top: 10px;
+}
+
+
+.button_register_2 {
+  width: 100%;
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 6px;
+}
+
+.button_register_2:hover {
+  background: linear-gradient(45deg, #3b5998, #1a2a6c);
+  transform: scale(1.02);
+}

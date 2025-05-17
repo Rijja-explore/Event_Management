@@ -1,0 +1,682 @@
+/* Existing CSS */
+
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 80px;
+    border-bottom: 4px solid #0069B4;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ssn-logo {
+    height: 50px;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #005096;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Logout Button */
+  .logout-button {
+    background-color: #0088CC;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  .logout-button:hover {
+    background-color: #006699;
+    transform: translate(2px, 2px);
+  }
+  
+  /* Main Container */
+  .dashboard-container {
+    padding: 20px;
+  }
+  
+  /* Header Styling */
+  .dashboard-title {
+    font-size: 3rem;
+    text-align: center;
+    color: #005096;
+    margin-bottom: 30px;
+  }
+  
+  /* Event Grid - Centered Layout */
+  /* Event Grid Layout */
+  .event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 20px; /* Gap between cards */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    grid-template-areas: 
+        "upcoming pending"
+        "approved history";
+  }
+  
+  /* Assign grid areas to specific cards */
+  .upcoming-events {
+    grid-area: upcoming;
+  }
+  
+  .pending-events {
+    grid-area: pending;
+  }
+  
+  .approved-events {
+    grid-area: approved;
+  }
+  
+  .event-history {
+    grid-area: history;
+  }
+  
+  /* Ensure responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "upcoming"
+            "pending"
+            "approved"
+            "history";
+    }
+  }
+  
+  /* Assign grid areas to specific cards */
+  .upcoming-events {
+    grid-area: upcoming;
+  }
+  
+  .pending-events {
+    grid-area: pending;
+  }
+  
+  .approved-events {
+    grid-area: approved;
+  }
+  
+  .event-history {
+    grid-area: history;
+  }
+  
+  /* Ensure responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "upcoming"
+            "pending"
+            "approved"
+            "history";
+    }
+  }
+  
+  
+  /* Event Card - Modern Look */
+  .event-card {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Event Header - Gradient Background */
+  .event-header {
+    background: linear-gradient(90deg, #005096, #0088CC);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Event Item - Clean & Elegant */
+  .event-item {
+    background-color: #f9f9f9;
+    border-left: 4px solid #005096;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .event-item p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Event Container */
+  .event-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Row for Event Cards */
+  .event-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  /* Event Card Styling - Equal Size */
+  .event-card {
+    flex: 1;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+  }
+  
+  /* Ensure Header Styling */
+  .event-header {
+    background: linear-gradient(90deg, #005096, #0088CC);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Ensure Consistent Button Styling */
+  .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .event-row {
+        flex-direction: column;
+    }
+  
+    .event-card {
+        min-height: auto;
+    }
+  }
+  
+  /* Button Styling */
+  .button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  /* Ensure buttons remain consistent */
+  .approve-button, .reject-button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: bold;
+    min-width: 100px;
+  }
+  
+  .approve-button {
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 8px;
+  }
+  
+  .reject-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .approve-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  .reject-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  /* Event History Styling */
+  .event-history {
+    max-width: 1200px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Ensure Responsive Layout */
+  @media (max-width: 768px) {
+    .event-grid {
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
+  }
+  
+  /* Image Banner */
+  .image-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .campus-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    font-family: serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Ensure scrolling is allowed */
+  html, body {
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  /* News Ticker */
+  .news-ticker {
+    width: 100%;
+    background-color: #0D5995;
+    color: white;
+    padding: 5px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  /* New Popup Modal Styling */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .modal-title {
+    font-size: 2rem;
+    color: #005096;
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f44336;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .modal-close:hover {
+    transform: scale(1.2);
+  }
+  
+  /* View More Button */
+  .view-more-button {
+    display: block;
+    width: fit-content;
+    margin: 15px auto 0;
+    padding: 10px 20px;
+    background-color: #0088CC;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .view-more-button:hover {
+    background-color: #005096;
+    transform: translateY(-2px);
+  }
+  
+  /* Animation for Pop-Up */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Close Modal Button */
+  .close-modal-button {
+    background-color: #f44336; /* Red background to indicate closing action */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .close-modal-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    transform: scale(1.05);    /* Slight zoom effect */
+  }
+  
+  .close-modal-button:active {
+    background-color: #b71c1c; /* Even darker when clicked */
+    transform: scale(0.95);
+  }
+
+
+
+  .popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.modal-content button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover {
+    background: #0056b3;
+}
+
+/* Close button styling */
+.modal-content .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.modal-content .close-button:hover {
+    color: #ffffff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Event Items */
+.event-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.event-item:hover {
+  transform: translateY(-2px);
+}
+
+.event-venue {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.event-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+/* Existing styles remain unchanged, add these at the end */
+
+/* Popup Modal */
+.popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #0056b3;
+}
