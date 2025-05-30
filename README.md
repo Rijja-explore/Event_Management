@@ -1,67 +1,166 @@
-# Event Management System
+# 🎯 EventSphere – Smart Event Management Platform for Colleges
 
-A **web-based Event Management System** designed to streamline the organization, display, and registration of college events. The system supports two user roles: **Admin** and  **Organizer** , with login access restricted to `@ssn.edu.in` emails.
+A powerful, real-time **Event Management System** designed for academic institutions to manage events, streamline approval workflows, and track registrations—all built with **React**, **Firebase**, and intelligent algorithms like **B+ Tree** and **DFS**.
+🧠 Built using Agile with Jira, GitHub, and Confluence
 
-## Features
+---
 
-### **1. User Roles & Authentication**
+## 🌟 Core Features
 
-* **Admin & Organizer Login** : Only users with an `@ssn.edu.in` email can log in.
-* **No login required for students** : Students can directly access event details and registration links.
+- 🔐 **Secure Role-Based Login** (`@ssn.edu.in` email via Firebase Auth)
+- 🧑‍💼 **Admin Dashboard**
+  - Approve/Reject events
+  - View analytics, download PDF reports
+  - Delete outdated or invalid events
+- 📝 **Organizer Dashboard**
+  - Create events with images, registration links
+  - Track approval and registrations
+- 👨‍🎓 **Student View (Guest Access)**
+  - Public homepage
+  - Top 3 upcoming events (via B+ Tree traversal)
+  - Register using Google Forms (no login required)
+- 🔔 **Email Automation**
+  - Email reminders via EmailJS
+- 📊 **Visual Analytics**
+  - Graphs, charts (Recharts)
+  - PDF reports (jsPDF)
+- 🧠 **Algorithmic Intelligence**
+  - **B+ Tree**: Search, sort, and suggest events
+  - **DFS**: Detect scheduling/venue conflicts
 
-### **2. Event Creation & Approval**
+---
 
-* **Organizers** can create events by providing essential details such as:
-  * Event title, date, time, and description
-  * Event poster/banner
-  * Registration link (Google Form)
-* **Admin Approval** : All events must be approved by an Admin before being published.
+## 🧾 Tech Stack
 
-### **3. Event Display & Registration**
+| Stack        | Technologies                              |
+|--------------|--------------------------------------------|
+| Frontend     | React, CSS, JavaScript                     |
+| Backend      | Firebase Firestore, Firebase Auth, EmailJS |
+| Reports      | jsPDF                                      |
+| Analytics    | Recharts                                   |
+| Algorithms   | B+ Tree, DFS (in `Algorithm.py`)           |
+| Email Engine | EmailJS via `mail_backend/`                |
 
-* **Homepage** : Displays the top three upcoming events, linking to their details.
-* **Event Detail Page** : Shows event information along with the registration link.
-* **Student Registration** : Students can register for events via the provided link.
+---
 
-### **4. Event Tracking & Notifications**
+## 📁 Project Structure
+---
+<pre>```
+event-management-system/
+├── assets/ # UI icons, images
+├── mail_backend/ # Email reminders
+├── Algorithm.py # B+ Tree, DFS logic
+├── event_clash_detector.py # Conflict detection logic
+├── firebase_events.json # Events seed data
+├── firebase_registrations.json # Registrations data
+├── firebase_fetcher.js # Firestore operations
+├── Admin/ # Admin CSS + JS
+├── EventAnalytics/ # Charts & reports
+├── EventOrganizer/ # Organizer views
+├── EventOrganizerSignIn/ # Organizer login UI
+├── Home/ # Homepage carousel, guest views
+├── app.py # Flask or setup script
+├── event_app.py # Entry script
+</pre>
 
-* **Analytics for Admins** : Admins can track event engagement and registrations.
-* **Automated Reminders** : Admins can send reminder emails to registered students before the event.
+---
 
-### **5. Post-Event Reporting**
+## 🚀 Setup Instructions
 
-* **Report Generation** : Organizers can generate a **detailed registration and attendance report** after the event.
+### 📥 Clone the Repository
 
-## **Tech Stack**
+```bash
+git clone https://github.com/yourusername/event-management-system.git
+cd event-management-system
+```
+# React frontend
+```bash
+npm install
+```
 
-* **Frontend** : HTML, CSS, React
-* **Backend** : Python
-* **Database** : Firebase
-* **Project Management** : Jira for task tracking
-* **Algorithms & Data Structures** : At least one **advanced data structure** (e.g., Splay Trees, Red-Black Trees) and one **algorithm** (e.g., DFS, BFS, Dynamic Programming, Greedy, Backtracking).
+# Python backend
+```bash
+pip install -r requirements.txt
+```
+🔐 Firebase Setup
+---
+Add your Firebase project config in firebase.js
+Enable Firestore and Authentication (Email only)
 
-## **How to Run the Project**
+▶️ Run the App
+Frontend:
+```bash
+npm start
+```
+Backend:
+```bash
+python app.py
+```
+Visit http://localhost:3000
 
-1. Clone the repository:
-   <pre class="!overflow-visible" data-start="1941" data-end="2057"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-[5px] h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none">sh</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-sidebar-surface-primary px-2 font-sans text-xs text-token-text-secondary dark:bg-token-main-surface-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center select-none px-4 py-1" aria-label="Copy"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy</button></span><span class="" data-state="closed"><button class="flex select-none items-center gap-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs"><path d="M2.5 5.5C4.3 5.2 5.2 4 5.5 2.5C5.8 4 6.7 5.2 8.5 5.5C6.7 5.8 5.8 7 5.5 8.5C5.2 7 4.3 5.8 2.5 5.5Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.66282 16.5231L5.18413 19.3952C5.12203 19.7678 5.09098 19.9541 5.14876 20.0888C5.19933 20.2067 5.29328 20.3007 5.41118 20.3512C5.54589 20.409 5.73218 20.378 6.10476 20.3159L8.97693 19.8372C9.72813 19.712 10.1037 19.6494 10.4542 19.521C10.7652 19.407 11.0608 19.2549 11.3343 19.068C11.6425 18.8575 11.9118 18.5882 12.4503 18.0497L20 10.5C21.3807 9.11929 21.3807 6.88071 20 5.5C18.6193 4.11929 16.3807 4.11929 15 5.5L7.45026 13.0497C6.91175 13.5882 6.6425 13.8575 6.43197 14.1657C6.24513 14.4392 6.09299 14.7348 5.97903 15.0458C5.85062 15.3963 5.78802 15.7719 5.66282 16.5231Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5 7L18.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Edit</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre language-sh"><span>git clone https://github.com/your-username/event-management-system.git
-   cd event-management-system
-   </span></code></div></div></pre>
-2. Install dependencies:
-   <pre class="!overflow-visible" data-start="2088" data-end="2202"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-[5px] h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none">sh</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-sidebar-surface-primary px-2 font-sans text-xs text-token-text-secondary dark:bg-token-main-surface-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center select-none px-4 py-1" aria-label="Copy"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy</button></span><span class="" data-state="closed"><button class="flex select-none items-center gap-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs"><path d="M2.5 5.5C4.3 5.2 5.2 4 5.5 2.5C5.8 4 6.7 5.2 8.5 5.5C6.7 5.8 5.8 7 5.5 8.5C5.2 7 4.3 5.8 2.5 5.5Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.66282 16.5231L5.18413 19.3952C5.12203 19.7678 5.09098 19.9541 5.14876 20.0888C5.19933 20.2067 5.29328 20.3007 5.41118 20.3512C5.54589 20.409 5.73218 20.378 6.10476 20.3159L8.97693 19.8372C9.72813 19.712 10.1037 19.6494 10.4542 19.521C10.7652 19.407 11.0608 19.2549 11.3343 19.068C11.6425 18.8575 11.9118 18.5882 12.4503 18.0497L20 10.5C21.3807 9.11929 21.3807 6.88071 20 5.5C18.6193 4.11929 16.3807 4.11929 15 5.5L7.45026 13.0497C6.91175 13.5882 6.6425 13.8575 6.43197 14.1657C6.24513 14.4392 6.09299 14.7348 5.97903 15.0458C5.85062 15.3963 5.78802 15.7719 5.66282 16.5231Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5 7L18.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Edit</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre language-sh"><span>npm install  # For React frontend
-   pip install -r backend/requirements.txt  # For Python backend
-   </span></code></div></div></pre>
-3. Start the development servers:
-   <pre class="!overflow-visible" data-start="2242" data-end="2346"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-[5px] h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none">sh</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-sidebar-surface-primary px-2 font-sans text-xs text-token-text-secondary dark:bg-token-main-surface-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center select-none px-4 py-1" aria-label="Copy"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy</button></span><span class="" data-state="closed"><button class="flex select-none items-center gap-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-xs"><path d="M2.5 5.5C4.3 5.2 5.2 4 5.5 2.5C5.8 4 6.7 5.2 8.5 5.5C6.7 5.8 5.8 7 5.5 8.5C5.2 7 4.3 5.8 2.5 5.5Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.66282 16.5231L5.18413 19.3952C5.12203 19.7678 5.09098 19.9541 5.14876 20.0888C5.19933 20.2067 5.29328 20.3007 5.41118 20.3512C5.54589 20.409 5.73218 20.378 6.10476 20.3159L8.97693 19.8372C9.72813 19.712 10.1037 19.6494 10.4542 19.521C10.7652 19.407 11.0608 19.2549 11.3343 19.068C11.6425 18.8575 11.9118 18.5882 12.4503 18.0497L20 10.5C21.3807 9.11929 21.3807 6.88071 20 5.5C18.6193 4.11929 16.3807 4.11929 15 5.5L7.45026 13.0497C6.91175 13.5882 6.6425 13.8575 6.43197 14.1657C6.24513 14.4392 6.09299 14.7348 5.97903 15.0458C5.85062 15.3963 5.78802 15.7719 5.66282 16.5231Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5 7L18.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Edit</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre language-sh"><span>npm start  # Runs the React frontend
-   python backend/app.py  # Runs the backend server
-   </span></code></div></div></pre>
-4. Access the application in your browser at `http://localhost:3000/`.
+📊 Dashboards
+Admin Panel	Organizer Panel	Guest Homepage
+Approve/reject, analytics	Submit events, track	Carousel + registration links
 
-## **Contributing**
+💡 Algorithms in Action
+Algorithm	Role
+B+ Tree	Fetch 3 upcoming events for homepage carousel
+DFS	Detect event clashes by date & venue
 
-1. Fork the repository and create a new branch.
-2. Make your changes and commit them.
-3. Push to your fork and create a pull request.
+📧 Email Integration
+Feature	Tool Used
+Reminder Emails	EmailJS
+No backend needed	Client-side JS setup via mail_backend/
 
-## **License**
+📄 Sample Event Object (Firestore)
+```bash
+{
+  "title": "TechTalk 2025",
+  "date": "2025-06-15",
+  "category": "Technical",
+  "venue": "Auditorium A",
+  "registrationLink": "https://forms.gle/eventform",
+  "status": "approved"
+}
+```
+Agile Project Workflow
+---
+Tool	Use Case
+Jira	Sprint tracking, user stories
+Confluence	Documentation & meeting notes
+GitHub	Codebase management & collaboration
 
-This project is licensed under the  **MIT License** .
+ScreenShots
+---
+![image](https://github.com/user-attachments/assets/f79b2b3e-cb2a-4f27-bf19-f0d5f183c815)
+![image](https://github.com/user-attachments/assets/a0dae751-ffac-42d6-8e11-99fde13f9aa3)
+![image](https://github.com/user-attachments/assets/173ebcbc-d54c-48db-b338-ac39e00ba46d)
+![image](https://github.com/user-attachments/assets/1a791d46-ca96-4f32-b754-57c0ed16e259)
+![image](https://github.com/user-attachments/assets/429ec49e-4289-474e-99e9-bd619651f443)
+![image](https://github.com/user-attachments/assets/196fcc4a-096c-4685-9edb-acfca2d058c4)
+![image](https://github.com/user-attachments/assets/e0eaac82-87b6-4055-aa20-3a669a251ad0)
+![image](https://github.com/user-attachments/assets/219fc20d-da8d-4ca4-8347-2d2f8965fd00)
+![image](https://github.com/user-attachments/assets/818850e4-c70a-4eeb-9587-b3f8381f76c2)
+![image](https://github.com/user-attachments/assets/6fd3f203-2f97-4eb3-8a97-5c4c5b114e0d)
+![image](https://github.com/user-attachments/assets/4379794e-03d5-4e8e-9d5b-8783fdb86a55)
+![image](https://github.com/user-attachments/assets/0351500a-a466-45ef-9e3e-c6fa1e678933)
+![image](https://github.com/user-attachments/assets/35cf4f61-3b69-42a5-b6ae-f2b3897de94c)
+
+
+Contributors
+---
+<pre> Rijja H 
+ Rohith Krishna S 
+ Rohith Varshighan S 
+ Saathviga B </pre>
+
+
+📜 License
+---
+This project is licensed under the MIT License.
+
+
+
+
+
+
